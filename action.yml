@@ -1,0 +1,39 @@
+name: 'Syemantic Update'
+description: 'Update semantic versions'
+inputs:
+  increment: 
+    description: 'The type of increment made'
+    required: true
+    default: 'patch'
+    type: choice
+    options:
+      - 'major'
+      - 'minor'
+      - 'patch'
+  project-type:
+    description: 'The type of project to update'
+    required: true
+    default: 'node'
+    options:
+      - elixir
+      - go
+      - helm
+      - java
+      - maven
+      - node
+      - ocaml
+      - python
+      - php
+      - ruby
+      - rust
+      - sfdx
+      - simple
+      - terraform-module
+# This is unlikely to be used
+# Might be useful for composite jobs
+outputs: 
+  increment:
+    type: 'string'
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
